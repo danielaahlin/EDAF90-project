@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "cocktail-matcher": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cocktail-matcher"
+    }
+  },
+  "defaultProject": "cocktail-matcher",
+  "cli": {
+    "analytics": "e066ea10-3690-4a40-b297-67edc6e9b10e"
+  }
 }
