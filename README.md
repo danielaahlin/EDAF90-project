@@ -19,3 +19,14 @@ IMPLEMENTATION
 - Search (tags, auto-fill - in both Home, Drink and Available Alcohol)
 - REST API (fetch data)
 - UX, bygg basen till hemsidan
+
+## Anteckningar 2020-03-04
+
+- Search: Klajjan & Emil
+- REST API: Berg & Hellman
+- UX, Bas: Daniel & Grahm
+
+Kommande möten: 
+- Fredag (14.30), Måndag, Onsdag
+
+Tills fredag, kika lite på vad man ska göra, börja med det och rapportera hur det har gått. 
