@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import systemet from "../api/systemet.json";
 
 @Injectable({
   providedIn: "root"
@@ -26,12 +27,13 @@ export class ApiService {
   }
 
   getIngredientByName(name: string) {
+    //TODO use systemet and not cokctail
     return this.httpClient.get(
       "https://www.thecocktaildb.com/api/json/v1/1/search.php?i" + name
     )
   }
 
-  getIngredientbyId(id: number) {
-    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=" + id;
+  getAllIngedientInfo(artNumber) {
+    //TODO use systemet
   }
 }
