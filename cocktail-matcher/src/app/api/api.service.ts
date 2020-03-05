@@ -19,9 +19,17 @@ export class ApiService {
     );
   }
 
-  getCocktailByIngredient() {}
+  getCocktailByIngredient(name: string) {
+    return this.httpClient.get(
+      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + name
+    )
+  }
 
-  getIngredientByName() {}
+  getIngredientByName(name: string) {
+    return this.httpClient.get(
+      "https://www.thecocktaildb.com/api/json/v1/1/search.php?i" + name
+    )
+  }
 
   getIngredientbyId(id: number) {
     "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=" + id;
