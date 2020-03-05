@@ -7,9 +7,17 @@ import { HttpClient } from "@angular/common/http";
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
 
+  getCocktailByName() {}
+
   getCocktailById(id: number) {
     return this.httpClient.get(
       "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id
     );
   }
+
+  getCocktailByIngredient() {}
+
+  getIngredientByName() {}
+
+  getIngredientbyId() {}
 }
