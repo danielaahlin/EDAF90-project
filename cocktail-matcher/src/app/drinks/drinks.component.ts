@@ -11,7 +11,7 @@ export class DrinksComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getCocktailById(11007).subscribe(res => {
+    this.apiService.getAllIngedientInfo(1).subscribe(res => {
       console.log(res)
     })
   }

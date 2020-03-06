@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import systemet from "../api/systemet.json";
+import { map } from "rxjs/operators"
 
 @Injectable({
   providedIn: "root"
@@ -33,7 +33,12 @@ export class ApiService {
     )
   }
 
-  getAllIngedientInfo(artNumber) {
-    //TODO use systemet
+  getAllIngedientInfo(artNumber: number) {
+    return this.httpClient.get(
+      "../assets/systemet.json"
+    ).pipe(map((res) => {
+      res = Object.values(res).filter((data) => data.ArtikelId === artNumber);
+      return res;
+    }))
   }
 }
