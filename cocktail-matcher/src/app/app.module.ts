@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DrinkTypeComponent } from './drink-type/drink-type.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     DrinksComponent,
-    AlcoholsComponent
+    AlcoholsComponent,
+    DrinkTypeComponent
   ],
   imports: [
     BrowserModule,
