@@ -1,17 +1,21 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators"
+import { map, filter } from "rxjs/operators"
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiService {
+  products: any = [];
   constructor(private httpClient: HttpClient) {}
 
   getCocktailByName(name: string) {
     return this.httpClient.get(
       "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
-    );
+    ).pipe(
+      map(res => {
+      return res;
+    }));
   }
 
   getCocktailById(id: number) {
@@ -27,18 +31,20 @@ export class ApiService {
   }
 
   getIngredientByName(name: string) {
-    //TODO use systemet and not cokctail
     return this.httpClient.get(
-      "https://www.thecocktaildb.com/api/json/v1/1/search.php?i" + name
-    )
+      "../assets/systemet.json").pipe(
+        map((res:any) => {
+          return res.filter(item => item.Namn === name)
+        })
+      );
   }
 
-  getAllIngedientInfo(artNumber: number) {
+  getAllIngredientInfo(artNumber: number) {
     return this.httpClient.get(
-      "../assets/systemet.json"
-    ).pipe(map((res) => {
-      res = Object.values(res).filter((data) => data.ArtikelId === artNumber);
-      return res;
-    }))
-  }
+      "../assets/systemet.json").pipe(
+        map((res:any) => {
+          return res.filter(item => item.Artikelid === artNumber)
+        })
+      );
+  }  
 }
