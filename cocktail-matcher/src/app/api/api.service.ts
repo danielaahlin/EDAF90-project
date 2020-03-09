@@ -45,7 +45,7 @@ export class ApiService {
       );
   }
 
-  getAllIngredientInfo(artNumber: number) {
+  getIngredientByArticleNbr(artNumber: number) {
     return this.httpClient.get(
       "../assets/systemet.json").pipe(
         map((res:any) => {
