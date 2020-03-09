@@ -30,3 +30,8 @@ Kommande möten:
 - Fredag (14.30), Måndag, Onsdag
 
 Tills fredag, kika lite på vad man ska göra, börja med det och rapportera hur det har gått. 
+
+## Anteckningar 2020-03-06
+- Search: Inte kommit igång. 
+- REST API: Kommit igång, hämta data från CocktailDB funkar. Systemets XML är nu JSON, jobbar på det.
+- UX, Bas: Går framåt, drinkar syns under drinktaben och håller på att lösa så man kan hämta datan därifrån. 

@@ -12,12 +12,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 import { HttpClientModule } from '@angular/common/http';
+import { DrinkTypeComponent } from './drink-type/drink-type.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -25,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     DrinksComponent,
-    AlcoholsComponent
+    AlcoholsComponent,
+    DrinkTypeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
