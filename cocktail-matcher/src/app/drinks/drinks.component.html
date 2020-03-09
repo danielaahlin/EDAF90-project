@@ -1,4 +1,8 @@
-<div>
+<div class="root">
+
+    <div class="search">
+        <app-search [redirect]="['#']" [showButton]="false"></app-search>
+    </div>
 
     <mat-spinner *ngIf="drinks.length === 0"></mat-spinner>
 

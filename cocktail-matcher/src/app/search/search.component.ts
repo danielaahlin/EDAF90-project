@@ -1,11 +1,8 @@
 import { ApiService } from "../api/api.service";
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
-
-export interface Tag {
-  name: string;
-}
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search',
@@ -14,18 +11,22 @@ export interface Tag {
 })
 export class SearchComponent implements OnInit {
 
+  @Input() redirect: string;
+  @Input() showButton: boolean;
+
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  tags: Tag[] = [];
 
-  add(event: MatChipInputEvent): void {
-    const { input, value } = event;
+  constructor(private apiService: ApiService, private searchService: SearchService) { }
+
+  add(input): void {
+    const { value } = input;
 
     if ((value || '').trim()) {
-      this.tags.push({name: value.trim()});
+      this.searchService.addTag(value.trim());
     }
 
     // Reset the input value
@@ -34,15 +35,25 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  remove(fruit: Tag): void {
-    const index = this.tags.indexOf(fruit);
+  remove(tag: string): void {
+    this.searchService.removeTag(tag);
+    //const index = this.tags.indexOf(tag);
 
-    if (index >= 0) {
-      this.tags.splice(index, 1);
-    }
+    //if (index >= 0) {
+    //  this.tags.splice(index, 1);
+    //}
   }
 
-  constructor(private apiService: ApiService) { }
+  searchOrAdd(event) {
+    if (event.currentTarget.value)
+      this.add(event.currentTarget)
+    else
+      this.search(event.currentTarget.value)
+  }
+
+  search(value: string): void {
+    console.log("wow" + value)
+  }
 
   ngOnInit(): void {
   }
