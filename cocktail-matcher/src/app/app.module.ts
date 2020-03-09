@@ -50,6 +50,7 @@ import { SearchComponent } from './search/search.component';
     MatInputModule,
     MatChipsModule,
   ],
+  entryComponents: [DrinkTypeComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

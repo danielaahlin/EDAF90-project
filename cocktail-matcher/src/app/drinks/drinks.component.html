@@ -4,14 +4,13 @@
 
     <mat-card *ngFor="let drink of drinks" class="drink_overview">
         <mat-card-header>
-            <mat-card-title>{{ drink.strDrink }}</mat-card-title>
+            <mat-card-title>{{ drink.data.strDrink }}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="{{drink.strDrinkThumb}}"/>
+        <img mat-card-image src="{{drink.data.strDrinkThumb}}"/>
         <mat-card-actions>
-            <button mat-button (click)="onSelect(drink)" [routerLink]="['/drinks',drink.idDrink]">
+            <button mat-button (click)="onSelect(drink)" [routerLink]="['/drinks',drink.data.idDrink]">
                 Details
             </button>
-            
         </mat-card-actions>
     </mat-card>
 </div>
