@@ -45,10 +45,7 @@ export class ApiService {
   getCocktailByName(name: string) {
     return this.httpClient.get(
       "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
-    ).pipe(
-      map(res => {
-      return res;
-    }));
+    );
   }
 
   getCocktailByfirstLetter(letter: string) {
