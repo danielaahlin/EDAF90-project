@@ -22,8 +22,11 @@ import {MatChipsModule} from '@angular/material/chips';
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { DrinkTypeComponent } from './drink-type/drink-type.component';
+import { DrinkTypeComponent } from './drinks/drink-type.component';
 import { SearchComponent } from './search/search.component';
+import { DrinkTypeService } from './drinks/drinkType.service';
+import { DrinkTypeDirective } from './drinks/drinkType.directive';
+import { DrinkComponent } from './drinks/drink.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { SearchComponent } from './search/search.component';
     DrinksComponent,
     AlcoholsComponent,
     DrinkTypeComponent,
-    SearchComponent
+    SearchComponent,
+    DrinkTypeDirective,
+    DrinkComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +55,11 @@ import { SearchComponent } from './search/search.component';
     MatInputModule,
     MatChipsModule,
   ],
-  entryComponents: [DrinkTypeComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [DrinkComponent],
+  providers: [DrinkTypeService],
+  bootstrap: [AppComponent],
+  exports: [
+    DrinkComponent
+  ]
 })
 export class AppModule { }

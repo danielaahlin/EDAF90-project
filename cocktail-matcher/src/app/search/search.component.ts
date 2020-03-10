@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(private apiService: ApiService, private searchService: SearchService) { }
+  constructor(private apiService: ApiService, public searchService: SearchService) { }
 
   add(input): void {
     const { value } = input;

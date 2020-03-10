@@ -10,5 +10,5 @@
         (keyup.enter)="searchOrAdd($event)">
     </mat-chip-list>
   </mat-form-field>
-  <button *ngIf="showButton" mat-flat-button color="primary" [routerLink]="[redirect]" (click)="search()">Search!</button>
+  <button *ngIf="showButton" mat-flat-button color="primary" [routerLink]="[redirect]" (click)="search('tmp')">Search!</button>
 </div>
