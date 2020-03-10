@@ -20,13 +20,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 
-
 import { HttpClientModule } from '@angular/common/http';
-import { DrinkTypeComponent } from './drinks/drink-type.component';
+import { DrinkTypeComponent } from './drinks/drink-type/drink-type.component';
 import { SearchComponent } from './search/search.component';
-import { DrinkTypeService } from './drinks/drinkType.service';
-import { DrinkTypeDirective } from './drinks/drinkType.directive';
-import { DrinkComponent } from './drinks/drink.component';
+import { DrinkTypeService } from './drinks/drink-type/drinkType.service';
 
 
 @NgModule({
@@ -36,9 +33,7 @@ import { DrinkComponent } from './drinks/drink.component';
     DrinksComponent,
     AlcoholsComponent,
     DrinkTypeComponent,
-    SearchComponent,
-    DrinkTypeDirective,
-    DrinkComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -55,11 +50,7 @@ import { DrinkComponent } from './drinks/drink.component';
     MatInputModule,
     MatChipsModule,
   ],
-  entryComponents: [DrinkComponent],
   providers: [DrinkTypeService],
-  bootstrap: [AppComponent],
-  exports: [
-    DrinkComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

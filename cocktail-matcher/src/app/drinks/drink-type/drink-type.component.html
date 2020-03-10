@@ -1,5 +1,10 @@
-<ng-template drink-host></ng-template>
-<p>{{drinks}}</p>
+<div>
+    <mat-spinner *ngIf="drink === undefined"></mat-spinner>
+    <div *ngIf="drink !== undefined">
+        <p>{{drink.strDrink}}</p>
+    </div>
+</div>
+
 
 <!-- <div>
 
@@ -12,13 +17,6 @@
 
                 <img mat-card-image style="width: 300px; height: auto;" src="{{drink.strDrinkThumb}}"/>
 
-                <h3>Content</h3>
-                <p *ngFor="let ing of ingredients">
-                    {{ing}}
-                </p>
-                <p *ngFor="let mea of measure">
-                    {{mea}}
-                </p>
             </mat-drawer>
             
             <mat-drawer-content>

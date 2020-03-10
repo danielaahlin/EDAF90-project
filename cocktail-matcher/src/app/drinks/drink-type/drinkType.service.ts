@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DrinkType } from "./drinkType";
-import { DrinkTypeComponent } from "./drink-type.component";
-import { ApiService } from "../api/api.service";
-import { DrinkComponent } from "./drink.component";
+import { ApiService } from "../../api/api.service";
 
 
 
@@ -17,8 +15,7 @@ export class DrinkTypeService {
             apiService.getCocktailByfirstLetter(letter).subscribe(async res => {
                 if(res["drinks"] !== null){
                     res["drinks"].map(drink => {
-                        // console.log(drink);
-                        tmpDrinks.push(new DrinkType(DrinkComponent, drink));
+                        tmpDrinks.push(new DrinkType(drink));
                     });
                 }
             });
