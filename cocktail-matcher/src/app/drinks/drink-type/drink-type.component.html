@@ -1,28 +1,56 @@
+
+
 <div>
+    <mat-spinner *ngIf="drink === undefined"></mat-spinner>
+
+    <div *ngIf="drink !== undefined">
+        <mat-card style="width: 30%; margin: auto;">
+            <mat-card-title-group >
+                <mat-card-title style="margin: auto; margin-bottom: 20px;">
+                    {{drink["strDrink"]}}
+                </mat-card-title>
+                <mat-card-subtitle *ngFor="let content of contents; let i = index">
+                    {{content['measure']}} {{content['ingredient']}}
+                </mat-card-subtitle>
+                <img mat-card-lg-image style="width: 300px; height: auto;" src="{{drink['strDrinkThumb']}}"/>
+            </mat-card-title-group>
+        
+            <mat-card-content style="margin-top: 20px;">
+                Instructions:
+
+                {{drink["strInstructions"]}}
+            </mat-card-content>
+          
+        </mat-card>
+        
+    </div>
+</div>
+
+<!--<div>
     <mat-spinner *ngIf="drink === undefined"></mat-spinner>
     <div *ngIf="drink !== undefined">
         <p>{{drink["strDrink"]}}</p>
     </div>
-</div>
+</div>-->
 
 
-<!-- <div>
+<!--<div>
 
     <mat-spinner *ngIf="drink === undefined"></mat-spinner>
 
     <div *ngIf="drink !== undefined">
         <mat-drawer-container class="example-container">
             <mat-drawer mode="side" opened class="recipe_side">
-                <h2>{{drink.strDrink}}</h2>
+                <h2>{{drink["strDrink"]}}</h2>
 
-                <img mat-card-image style="width: 300px; height: auto;" src="{{drink.strDrinkThumb}}"/>
+                <img mat-card-image style="width: 300px; height: auto;" src="{{drink['strDrinkThumb']}}"/>
 
             </mat-drawer>
             
             <mat-drawer-content>
                 Instructions:
 
-                {{drink.strInstructions}}
+                {{drink["strInstructions"]}}
             </mat-drawer-content>
           
         </mat-drawer-container>
