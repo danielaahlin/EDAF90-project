@@ -70,7 +70,7 @@ export class ApiService {
     return this.httpClient.get(
       this.sysAdress).pipe(
         map((res:Array<sysArticle>) => {
-          return res.filter(item => item.Namn === name)
+          return res.filter(item => item.Namn.toLowerCase() === name.toLowerCase())
         })
       );
   }
@@ -88,7 +88,7 @@ export class ApiService {
     return this.httpClient.get(
       this.sysAdress).pipe(
         map((res:Array<sysArticle>) => {
-          return res.filter(item => item.Varugrupp.includes(type));
+          return res.filter(item => item.Varugrupp.toLowerCase().includes(type.toLowerCase()));
         })
       );
   }
