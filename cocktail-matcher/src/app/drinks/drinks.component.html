@@ -1,17 +1,20 @@
-<div>
+<div class="root">
+
+    <div class="search">
+        <app-search [redirect]="['#']" [showButton]="false"></app-search>
+    </div>
 
     <mat-spinner *ngIf="drinks.length === 0"></mat-spinner>
 
     <mat-card *ngFor="let drink of drinks" class="drink_overview">
         <mat-card-header>
-            <mat-card-title>{{ drink.strDrink }}</mat-card-title>
+            <mat-card-title>{{ drink.data.strDrink }}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="{{drink.strDrinkThumb}}"/>
+        <img mat-card-image src="{{drink.data.strDrinkThumb}}"/>
         <mat-card-actions>
-            <button mat-button (click)="onSelect(drink)" [routerLink]="['/drinks',drink.idDrink]">
+            <button mat-button [routerLink]="['/drinks', drink.data.idDrink]">
                 Details
             </button>
-            
         </mat-card-actions>
     </mat-card>
 </div>

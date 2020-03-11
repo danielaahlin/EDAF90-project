@@ -20,10 +20,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 
-
 import { HttpClientModule } from '@angular/common/http';
-import { DrinkTypeComponent } from './drink-type/drink-type.component';
+import { DrinkTypeComponent } from './drinks/drink-type/drink-type.component';
 import { SearchComponent } from './search/search.component';
+import { DrinkTypeService } from './drinks/drink-type/drinkType.service';
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import { SearchComponent } from './search/search.component';
     MatInputModule,
     MatChipsModule,
   ],
-  providers: [],
+  providers: [DrinkTypeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
