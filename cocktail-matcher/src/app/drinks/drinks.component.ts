@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from "../api/api.service";
 import { DrinkType } from './drink-type/drinkType';
 import { DrinkTypeService } from './drink-type/drinkType.service';
+import { SearchService } from '../search.service';
 
 @Component({
     selector: 'app-drinks',
@@ -10,11 +11,12 @@ import { DrinkTypeService } from './drink-type/drinkType.service';
 })
 
 export class DrinksComponent implements OnInit {
-    drinks: DrinkType[];
+    //drinks: DrinkType[];
 
-    constructor(private apiService: ApiService, private drinkTypeService: DrinkTypeService) { }
+    constructor(private apiService: ApiService, public searchService: SearchService) { }
 
     ngOnInit(): void {
-        this.drinks = this.drinkTypeService.getDrinks(this.apiService);
+        this.searchService.search();
+        //this.drinks = this.drinkTypeService.getDrinks(this.apiService);
     }
 }
