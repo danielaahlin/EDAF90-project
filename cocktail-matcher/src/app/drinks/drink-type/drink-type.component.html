@@ -9,15 +9,16 @@
                 <mat-card-title style="margin: auto; margin-bottom: 20px;">
                     {{drink["strDrink"]}}
                 </mat-card-title>
+                <mat-card-subtitle style="">
+                    <b>Glass: {{drink["strGlass"]}}</b>
+                </mat-card-subtitle>
                 <mat-card-subtitle *ngFor="let content of contents; let i = index">
-                    {{content['measure']}} {{content['ingredient']}}
+                    <li>{{content['measure']}} {{content['ingredient']}}</li>
                 </mat-card-subtitle>
                 <img mat-card-lg-image style="width: 300px; height: auto;" src="{{drink['strDrinkThumb']}}"/>
             </mat-card-title-group>
         
             <mat-card-content style="margin-top: 20px;">
-                Instructions:
-
                 {{drink["strInstructions"]}}
             </mat-card-content>
           
