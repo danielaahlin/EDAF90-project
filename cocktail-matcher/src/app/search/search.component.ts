@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { SearchService } from '../search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,8 +12,7 @@ import { SearchService } from '../search.service';
 })
 export class SearchComponent implements OnInit {
 
-  @Input() redirect: string;
-  @Input() showButton: boolean;
+  @Input() redirect: string[];
 
   visible = true;
   selectable = true;
@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(private apiService: ApiService, public searchService: SearchService) { }
+  constructor(private router: Router, public searchService: SearchService) { }
 
   add(input): void {
     const { value } = input;
@@ -37,22 +37,18 @@ export class SearchComponent implements OnInit {
 
   remove(tag: string): void {
     this.searchService.removeTag(tag);
-    //const index = this.tags.indexOf(tag);
-
-    //if (index >= 0) {
-    //  this.tags.splice(index, 1);
-    //}
   }
 
   searchOrAdd(event) {
     if (event.currentTarget.value)
       this.add(event.currentTarget)
     else
-      this.search(event.currentTarget.value)
+      this.search()
   }
 
-  search(value: string): void {
-    console.log("wow" + value)
+  search(): void {
+    this.searchService.search();
+    this.router.navigate(this.redirect);
   }
 
   ngOnInit(): void {

@@ -35,3 +35,8 @@ Tills fredag, kika lite på vad man ska göra, börja med det och rapportera hur
 - Search: Inte kommit igång. 
 - REST API: Kommit igång, hämta data från CocktailDB funkar. Systemets XML är nu JSON, jobbar på det.
 - UX, Bas: Går framåt, drinkar syns under drinktaben och håller på att lösa så man kan hämta datan därifrån. 
+
+## Anteckningar 2020-03-11
+- Search: Fler saker funkar, sökfältet är fungerbart och taggarna hänger med. 
+- REST API: Fungerar som det ska gå, det som saknas är översättning. Det som behöver göras, få ut alla varugrupper, kolla vilka som skiljer sig och hårdkoda in.
+- UX, Bas: Danne fixar alcohol under dagen. Grahm håller också på! Om inte klar ikväll, så kör vi stenhårt på Torsdag. 

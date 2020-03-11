@@ -23,8 +23,8 @@ export class DrinkTypeComponent implements OnInit {
       await this.getValueWithPromise(Number(id));
     } else {
       this.service.drinks.forEach(obj => {
-        if (obj.data['idDrink'] === id) {
-          this.drink = obj.data;
+        if (obj['idDrink'] === id) {
+          this.drink = obj;
           return;
         }
       });
