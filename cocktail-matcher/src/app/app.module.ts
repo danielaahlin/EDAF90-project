@@ -19,11 +19,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule} from '@angular/material/tabs';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DrinkTypeComponent } from './drinks/drink-type/drink-type.component';
 import { SearchComponent } from './search/search.component';
 import { DrinkTypeService } from './drinks/drink-type/drinkType.service';
+import { AlcoholTypeComponent } from './alcohols/alcohol-type/alcohol-type.component';
 
 
 @NgModule({
@@ -33,7 +37,8 @@ import { DrinkTypeService } from './drinks/drink-type/drinkType.service';
     DrinksComponent,
     AlcoholsComponent,
     DrinkTypeComponent,
-    SearchComponent
+    SearchComponent,
+    AlcoholTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,9 @@ import { DrinkTypeService } from './drinks/drink-type/drinkType.service';
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
+    MatSortModule,
+    MatDividerModule,
+    MatTabsModule
   ],
   providers: [DrinkTypeService],
   bootstrap: [AppComponent]

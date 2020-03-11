@@ -1,1 +1,19 @@
-<p>alcohols works!</p>
+<div>
+
+    <table matSort (matSortChange)="sortData($event)">
+        <tr>
+            <th mat-sort-header="name">Name</th>
+            <th mat-sort-header="volume">Volume (ml)</th>
+            <th mat-sort-header="price">Price (sek)</th>
+        </tr>
+
+        <tr *ngFor="let alc of alcohols">
+            <td [routerLink]="['/alcohols', alc.Artikelid]">
+                <button mat-button>{{alc.Namn}}</button>
+            </td>
+            <td>{{alc.Volymiml}}</td>
+            <td>{{ roundNumber(alc.Volymiml  * (alc.PrisPerLiter / 1000)) }}</td>
+        </tr>
+    </table>
+
+</div>

@@ -1,7 +1,7 @@
 <div>
     <mat-spinner *ngIf="drink === undefined"></mat-spinner>
     <div *ngIf="drink !== undefined">
-        <p>{{drink.strDrink}}</p>
+        <p>{{drink["strDrink"]}}</p>
     </div>
 </div>
 
