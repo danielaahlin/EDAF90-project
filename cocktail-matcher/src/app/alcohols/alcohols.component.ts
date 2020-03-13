@@ -25,6 +25,7 @@ export class AlcoholsComponent implements OnInit {
   }
 
   roundNumber(nbr) {
+    nbr = nbr / 100;
     return Number.parseFloat(nbr).toFixed(2);
   }
 
