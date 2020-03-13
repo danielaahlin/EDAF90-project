@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
+import { map, timeout } from "rxjs/operators";
 
 export interface sysArticle{
   "Volymiml": number,
@@ -38,6 +38,11 @@ export interface sysArticle{
 
 export class ApiService {
   products: any = [];
+  translation = {
+    "rum" : "rom",
+    "liqueur" : "lik�r",
+    "whiskey" : "whisky"
+  }
   private readonly sysAdress = "../assets/systemet.json";
 
   constructor(private httpClient: HttpClient) {}
@@ -88,8 +93,16 @@ export class ApiService {
     return this.httpClient.get(
       this.sysAdress).pipe(
         map((res:Array<sysArticle>) => {
-          return res.filter(item => item.Varugrupp.toLowerCase().includes(type.toLowerCase()));
+          return res.filter(item => this.translateIncludes(item, type));
         })
       );
+  }
+
+  private translateIncludes(item: sysArticle, type: string) {
+    let newType = type.toLowerCase();
+    if(Object.keys(this.translation).includes(newType)){
+      newType = this.translation[newType];
+    }
+    return item.Varugrupp.toLowerCase().includes(newType);
   }
 }
