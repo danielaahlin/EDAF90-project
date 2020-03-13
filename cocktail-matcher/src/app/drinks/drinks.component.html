@@ -6,13 +6,13 @@
 
     <mat-spinner *ngIf="searchService.searching"></mat-spinner>
 
-    <mat-card *ngFor="let drink of searchService.drinks" class="drink_overview">
+    <mat-card *ngFor="let drink of searchService.drinks" class="drink_overview" [routerLink]="['/drinks', drink.idDrink]">
         <mat-card-header>
             <mat-card-title>{{ drink.strDrink }}</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="{{drink.strDrinkThumb}}"/>
         <mat-card-actions>
-            <button mat-button [routerLink]="['/drinks', drink.idDrink]">
+            <button mat-button>
                 Details
             </button>
         </mat-card-actions>
