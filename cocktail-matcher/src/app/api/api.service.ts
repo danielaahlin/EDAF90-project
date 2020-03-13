@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 
-interface sysArticle{
+export interface sysArticle{
   "Volymiml": number,
   "Varugrupp": string,
   "Stil": string,
