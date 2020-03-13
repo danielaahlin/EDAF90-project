@@ -46,6 +46,11 @@ export class SearchComponent implements OnInit {
       this.search()
   }
 
+  onSubmit(event) {
+    event.preventDefualt();
+    this.search();
+  }
+
   search(): void {
     this.searchService.search();
     this.router.navigate(this.redirect);
