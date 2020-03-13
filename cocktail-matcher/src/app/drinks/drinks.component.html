@@ -4,7 +4,7 @@
         <app-search [redirect]="[]"></app-search>
     </div>
 
-    <mat-spinner *ngIf="searchService.searching"></mat-spinner>
+    <mat-spinner *ngIf="searchService.searching" class="spinner"></mat-spinner>
 
     <mat-card *ngFor="let drink of searchService.drinks" class="drink_overview" [routerLink]="['/drinks', drink.idDrink]">
         <mat-card-header>
