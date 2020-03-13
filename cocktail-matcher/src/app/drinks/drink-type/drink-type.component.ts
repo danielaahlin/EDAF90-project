@@ -12,6 +12,7 @@ import { ApiService } from '../../api/api.service';
 
 export class DrinkTypeComponent implements OnInit {
   drink: DrinkType;
+  contents: any[] = [];
 
   constructor(private service: DrinkTypeService, private apiService: ApiService) { }
 
@@ -21,14 +22,17 @@ export class DrinkTypeComponent implements OnInit {
 
     if (this.service.drinks === undefined) {
       await this.getValueWithPromise(Number(id));
+      this.getContents(this.drink);
     } else {
       this.service.drinks.forEach(obj => {
-        if (obj.data['idDrink'] === id) {
-          this.drink = obj.data;
+        if (obj['idDrink'] === id) {
+          this.drink = obj;
+          this.getContents(this.drink);
           return;
         }
       });
     }
+    console.log(this.drink);
   }
 
   promiseReturn(x) {
@@ -46,5 +50,16 @@ export class DrinkTypeComponent implements OnInit {
     const value = await this.promiseReturn(id);
   }
 
+  getContents(drink) {
+    var tempIngredient = '';
+    var tempMeasure = '';
+    for (var i = 1; i < 16; i++) {
+      tempIngredient = 'strIngredient' + i;
+      tempMeasure = 'strMeasure' + i;
+      if (drink[tempIngredient] != null) {
+          this.contents.push({"ingredient": drink[tempIngredient], "measure": drink[tempMeasure]})
+      }
+    } 
+  }
 
 }

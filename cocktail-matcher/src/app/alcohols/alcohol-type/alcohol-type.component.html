@@ -1,0 +1,34 @@
+
+
+<div>
+    <mat-spinner *ngIf="alcohol === undefined"></mat-spinner>
+
+    <div *ngIf="alcohol !== undefined">
+        <mat-card style="width: 30%; margin: auto;">
+            <mat-card-title-group >
+                <mat-card-title style="margin: auto; margin-bottom: 20px;">
+                    {{alcohol["Namn"]}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    Typ: {{alcohol["Typ"]}}
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    Alkoholhalt: {{alcohol["Alkoholhalt"]}}
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    Volym: {{alcohol["Volymiml"]}} ml
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    Pris: {{alcohol["Prisinklmoms"]}} kr
+                </mat-card-subtitle>
+                
+                <mat-card-subtitle>
+                    Ursprungsland: {{alcohol["Ursprunglandnamn"]}}
+                </mat-card-subtitle>
+                <img mat-card-lg-image style="width: 300px; height: auto;" src="https://images-na.ssl-images-amazon.com/images/I/51%2B7ZKElORL._SX466_.jpg"/>
+            </mat-card-title-group>
+          
+        </mat-card>
+        
+    </div>
+</div>

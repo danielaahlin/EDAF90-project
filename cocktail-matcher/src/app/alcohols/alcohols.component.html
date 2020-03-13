@@ -1,1 +1,24 @@
-<p>alcohols works!</p>
+<div>
+
+    <table matSort (matSortChange)="sortData($event)">
+        <tr>
+            <th mat-sort-header="name">Name</th>
+            <th mat-sort-header="volume">Volume (ml)</th>
+            <th mat-sort-header="price">Price (sek)</th>
+            <th mat-sort-header="apk">APK</th>
+            <th mat-sort-header="ecological">Ecological</th>
+        </tr>
+
+        <tr *ngFor="let alc of sortedData">
+            <td [routerLink]="['/alcohols', alc.Artikelid]">
+                <button mat-button>{{(alc.Namn2 === "") ? alc.Namn : alc.Namn + " - " + alc.Namn2}}</button>
+                <!-- <button mat-button *ngIf="alc.Namn2 !== ''">{{"-  " + alc.Namn2}}</button> -->
+            </td>
+            <td>{{alc.Volymiml}}</td>
+            <td>{{alc.Prisinklmoms}}</td>
+            <td>{{ roundNumber((alc.Volymiml * alc["Alkoholhalt"].split('%')[0]) / alc.Prisinklmoms) }}</td>
+            <td>{{ (alc.Ekologisk === 1) ? "Yes" : "No" }}</td>
+        </tr>
+    </table>
+
+</div>
