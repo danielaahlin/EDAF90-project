@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   @Input() redirect: string[];
+  @Input() searchCallback: () => void;
 
   visible = true;
   selectable = true;
@@ -46,13 +47,10 @@ export class SearchComponent implements OnInit {
       this.search()
   }
 
-  onSubmit(event) {
-    event.preventDefualt();
-    this.search();
-  }
-
   search(): void {
-    this.searchService.search();
+    this.searchService.search().finally(() => {
+      if (this.searchCallback) this.searchCallback();
+    })
     this.router.navigate(this.redirect);
   }
 

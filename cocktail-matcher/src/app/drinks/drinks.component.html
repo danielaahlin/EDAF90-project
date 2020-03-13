@@ -2,9 +2,11 @@
 
     <div class="search">
         <app-search [redirect]="[]"></app-search>
+        <h1 *ngIf="searchService.drinks.length == 0">No results, please use the search bar!</h1>
     </div>
 
     <mat-spinner *ngIf="searchService.searching"></mat-spinner>
+    
 
     <mat-card *ngFor="let drink of searchService.drinks" class="drink_overview">
         <mat-card-header>

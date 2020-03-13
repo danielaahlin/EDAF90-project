@@ -32,7 +32,6 @@ export class DrinkTypeComponent implements OnInit {
         }
       });
     }
-    console.log(this.drink);
   }
 
   promiseReturn(x) {

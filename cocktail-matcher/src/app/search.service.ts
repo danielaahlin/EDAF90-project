@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from "./api/api.service";
+import { ApiService, sysArticle } from "./api/api.service";
 import { tap, first } from 'rxjs/operators';
 
 @Injectable({
@@ -8,7 +8,8 @@ import { tap, first } from 'rxjs/operators';
 export class SearchService {
 
   tags: string[] = [];
-  drinks: string[] = [];
+  drinks: any[] = [];
+  alcohols: sysArticle[] = [];
   searching: boolean = false;
 
   constructor(private apiService: ApiService) { }
@@ -26,13 +27,18 @@ export class SearchService {
   async search() {
     this.searching = true;
     this.drinks = [];
-    await this.searchByName();
-    await this.searchByIngredient();
+    this.alcohols = [];
+    await Promise.all([
+      this.searchDrinksByName(),
+      this.searchDrinksByIngredient(),
+      this.searchAlcoholsByType(),
+    ])
+    //await this.searchByName();
+    //await this.searchByIngredient();
     this.searching = false;
-    console.log(this.drinks);
   }
 
-  async searchByIngredient() {
+  async searchDrinksByIngredient() {
     await Promise.all(this.tags.map( t => {
       this.apiService.getCocktailByIngredient(t).pipe(
         tap(res => {
@@ -44,7 +50,7 @@ export class SearchService {
     }));
   }
 
-  async searchByName() {
+  async searchDrinksByName() {
     const filter = (this.tags.length == 0)
       ? (_) => true
       : (d) => (this.tags.some(t => d.strDrink.toLowerCase().includes(t)));
@@ -64,5 +70,16 @@ export class SearchService {
           }
         }), first()).toPromise();
     }));
+  }
+
+  async searchAlcoholsByType() {
+    await Promise.all(this.tags.map(tag => {
+      this.apiService.getIngredientsByType(tag).pipe(
+        tap(res => {
+          res.forEach(a => {
+            this.alcohols.push(a);
+          })
+        }), first()).toPromise();
+    }))
   }
 }

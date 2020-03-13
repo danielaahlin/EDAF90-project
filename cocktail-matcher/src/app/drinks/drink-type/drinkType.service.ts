@@ -21,7 +21,6 @@ export class DrinkTypeService {
             });
         });
         this.drinks = tmpDrinks;
-        console.log(this.drinks);
         return tmpDrinks;
     }
 }

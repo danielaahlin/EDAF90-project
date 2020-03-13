@@ -1,5 +1,11 @@
 <div>
 
+    <div class="search">
+        <app-search [redirect]="[]" [searchCallback]="update"></app-search>
+        <h1 *ngIf="sortedData.length == 0">No results, please use the search bar!</h1>
+    </div>
+
+
     <table matSort (matSortChange)="sortData($event)">
         <tr>
             <th mat-sort-header="name">Name</th>
